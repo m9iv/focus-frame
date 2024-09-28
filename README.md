@@ -1,6 +1,6 @@
 # FocusFrame
 
-Small and simple training React/JS project which helps you to focus on learning/to do things that you really want to learn/to do.
+Focus Frame helps to focus on what you really want to learn.
 
 This project was bootstrapped with Vite.
 
