@@ -125,8 +125,8 @@ const Plans = () => {
           </Card>
 
           <Flex gap="2" justify="center" align="center">
-            <Button variant="soft" width="100%">
-              <PlusCircledIcon /> <Text size="2">Add a new category</Text>
+            <Button variant="ghost" width="100%">
+              <PlusCircledIcon /> <Text size="1">Add a new category</Text>
             </Button>
           </Flex>
         </Flex>
