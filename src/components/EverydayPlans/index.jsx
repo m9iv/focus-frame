@@ -18,7 +18,7 @@ const EverydayPlans = () => {
         <CalendarIcon width="16" height="16" /> Everyday plans
       </Heading>
 
-      <Tabs.Root defaultValue="sun">
+      <Tabs.Root defaultValue="tue">
         <Tabs.List>
           <Tabs.Trigger value="mon">Mon</Tabs.Trigger>
           <Tabs.Trigger value="tue">Tue</Tabs.Trigger>
