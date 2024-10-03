@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { colors } from "../../_data";
+import Category from "./Category";
 
 import {
   Flex,
   Box,
   Heading,
-  Card,
   Button,
   Text,
   TextField,
@@ -16,8 +16,6 @@ import {
 
 import {
   RocketIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
   PlusCircledIcon,
   PlusIcon,
   MinusIcon,
@@ -94,39 +92,7 @@ const FocusItems = ({ focusItems, onAddFocusItems }) => {
       </Heading>
 
       <Flex direction="column" gap="6" maxWidth="350px" pt="5">
-        {focusItems.length === 0 && (
-          <Text size="2" color="gray">
-            Create a category with at least one task on what you want to focus.
-          </Text>
-        )}
-
-        {focusItems.map((item) => (
-          <Card variant="ghost" key={item.category.id}>
-            <Button variant="soft" size="1" color={item.category.color}>
-              {item.category.name}
-            </Button>
-
-            {item.tasks.map((task) => (
-              <Card
-                variant="surface"
-                gap="3"
-                className={`focus-item ${task.isPlaned ? "active" : ""}`}
-                key={task.id}
-              >
-                <Flex justify="between" align="center">
-                  <Text as="div" size="2">
-                    {task.name}
-                  </Text>
-                  {task.isPlaned ? (
-                    <ChevronLeftIcon color="gray" />
-                  ) : (
-                    <ChevronRightIcon color="gray" />
-                  )}
-                </Flex>
-              </Card>
-            ))}
-          </Card>
-        ))}
+        <Category focusItems={focusItems} />
 
         <Flex gap="2" justify="center" align="center">
           <Dialog.Root>
