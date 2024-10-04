@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-import SectionHeader from "../common/SectionHeader";
-import Category from "./Category";
-import EditCategoryDialog from "./EditCategoryDialog";
-import DialogTrigger from "./EditCategoryDialog/DialogTrigger";
-
 import { Flex, Box, Dialog } from "@radix-ui/themes";
 import { RocketIcon, PlusCircledIcon } from "@radix-ui/react-icons";
+
+import SectionHeader from "../common/SectionHeader";
+import CategoryCard from "./CategoryCard";
+import EditCategoryDialog from "./EditCategoryDialog";
+import DialogTrigger from "./EditCategoryDialog/DialogTrigger";
 
 const FocusItems = ({ focusItems, onAddFocusItems }) => {
   const [categoryName, setCategoryName] = useState("");
@@ -41,7 +41,7 @@ const FocusItems = ({ focusItems, onAddFocusItems }) => {
       <SectionHeader title="Focus" icon={<RocketIcon />} />
 
       <Flex direction="column" gap="6" maxWidth="350px" pt="5">
-        <Category focusItems={focusItems} />
+        <CategoryCard focusItems={focusItems} />
 
         <Flex gap="2" justify="center" align="center">
           <Dialog.Root>
