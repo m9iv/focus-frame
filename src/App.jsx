@@ -28,6 +28,7 @@ const App = () => {
           focusItems={focusItems}
           onAddFocusItems={handleSetFocusItems}
         />
+
         <EverydayPlans />
       </Flex>
 

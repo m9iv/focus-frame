@@ -3,8 +3,9 @@ import { useState } from "react";
 
 import Category from "./Category";
 import EditCategoryDialog from "./EditCategoryDialog";
+import DialogTrigger from "./EditCategoryDialog/DialogTrigger";
 
-import { Flex, Box, Heading, Button, Text, Dialog } from "@radix-ui/themes";
+import { Flex, Box, Heading, Dialog } from "@radix-ui/themes";
 import { RocketIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 const FocusItems = ({ focusItems, onAddFocusItems }) => {
@@ -45,15 +46,11 @@ const FocusItems = ({ focusItems, onAddFocusItems }) => {
 
         <Flex gap="2" justify="center" align="center">
           <Dialog.Root>
-            <Dialog.Trigger>
-              <Button
-                onClick={handleAddNewCategory}
-                variant="ghost"
-                width="100%"
-              >
-                <PlusCircledIcon /> <Text size="1">Add new category</Text>
-              </Button>
-            </Dialog.Trigger>
+            <DialogTrigger
+              title="Add new category"
+              icon={<PlusCircledIcon />}
+              onClick={handleAddNewCategory}
+            />
 
             <EditCategoryDialog
               name={categoryName}
