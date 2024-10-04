@@ -1,8 +1,8 @@
 # FocusFrame
 
-Focus Frame helps to focus on what you really want to learn.
+Dream, plan, learn and analize.
 
-This project was bootstrapped with Vite.
+This is a training project, it was bootstrapped with Vite.
 
 ## Important commands
 
