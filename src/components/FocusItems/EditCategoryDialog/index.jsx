@@ -1,16 +1,11 @@
 /* eslint-disable react/prop-types */
-import { colors } from "../../../_data";
+import { Dialog, Flex } from "@radix-ui/themes";
 
-import {
-  Dialog,
-  Flex,
-  Text,
-  TextField,
-  Select,
-  Button,
-} from "@radix-ui/themes";
-
-import { PlusIcon, MinusIcon } from "@radix-ui/react-icons";
+import DialogHeader from "./DialogHeader";
+import FieldInput from "./FieldInput";
+import FieldSelect from "./FieldSelect";
+import FieldInputLine from "./FieldInputLine";
+import DialogButtons from "./DialogButtons";
 
 const EditCategoryDialog = ({
   name,
@@ -82,108 +77,41 @@ const EditCategoryDialog = ({
 
   return (
     <Dialog.Content maxWidth="450px">
-      <Dialog.Title>Edit category</Dialog.Title>
-
-      <Dialog.Description size="2" mb="4" color="gray">
+      <DialogHeader title="Edit Category">
         Add at least one task in this category
-      </Dialog.Description>
+      </DialogHeader>
 
       <form onSubmit={handleSubmitNewCategory}>
         <Flex direction="column" gap="3">
           <Flex justify="between">
-            <label>
-              <Text as="div" size="2" mb="1" weight="bold">
-                Category Name
-              </Text>
+            <FieldInput
+              title="Category Name"
+              defaultValue={name}
+              onUpdate={onUpdateName}
+            />
 
-              <TextField.Root
-                defaultValue={name}
-                onChange={(e) => onUpdateName(e.target.value)}
-                placeholder="Enter category"
-                style={{ width: "300px" }}
-              />
-            </label>
-
-            <label>
-              <Text as="div" size="2" mb="1" weight="bold">
-                Color
-              </Text>
-              <Select.Root defaultValue={color} onValueChange={onUpdateColor}>
-                <Select.Trigger color={color} variant="soft" />
-                <Select.Content color={color}>
-                  {colors.map((color, i) => (
-                    <Select.Item value={color} key={i}>
-                      {color}
-                    </Select.Item>
-                  ))}
-                </Select.Content>
-              </Select.Root>
-            </label>
+            <FieldSelect
+              title="Color"
+              selected={color}
+              onSelect={onUpdateColor}
+            />
           </Flex>
 
-          {tasks.map((task, i) => (
-            <div key={task.id}>
-              <Flex justify="between">
-                <label>
-                  <Text as="div" size="2" mb="1" weight="bold">
-                    {i === 0 && "Task(s)"}
-                  </Text>
-
-                  <TextField.Root
-                    defaultValue={task.name}
-                    onChange={(e) => handleUpdateTask(task.id, e.target.value)}
-                    placeholder="Enter task"
-                    style={{ width: "300px" }}
-                  />
-                </label>
-
-                <div>
-                  <Text
-                    as="div"
-                    size="2"
-                    mb="1"
-                    weight="bold"
-                    style={{ width: "90px" }}
-                  >
-                    {i === 0 && "Add/Remove"}
-                  </Text>
-
-                  <Flex justify="between">
-                    <Button
-                      type="button"
-                      onClick={() => handleAddTaskField()}
-                      variant="soft"
-                      color="cyan"
-                    >
-                      <PlusIcon />
-                    </Button>
-
-                    <Button
-                      type="button"
-                      onClick={() => handleRemoveTaskField(task.id)}
-                      variant="soft"
-                      color="crimson"
-                      disabled={tasks.length === 1}
-                    >
-                      <MinusIcon />
-                    </Button>
-                  </Flex>
-                </div>
-              </Flex>
-            </div>
+          {tasks.map((task, idx) => (
+            <FieldInputLine
+              task={task}
+              idx={idx}
+              key={task.id}
+              isButtonDisabled={tasks.length === 1}
+              onUpdate={handleUpdateTask}
+              onAddField={handleAddTaskField}
+              onRemoveField={handleRemoveTaskField}
+            />
           ))}
         </Flex>
 
         <Flex gap="3" mt="4" justify="end">
-          <Dialog.Close>
-            <Button variant="soft" color="gray">
-              Cancel
-            </Button>
-          </Dialog.Close>
-
-          <Dialog.Close>
-            <Button type="submit">Save</Button>
-          </Dialog.Close>
+          <DialogButtons />
         </Flex>
       </form>
     </Dialog.Content>
