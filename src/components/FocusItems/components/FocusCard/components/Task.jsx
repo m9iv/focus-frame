@@ -1,7 +1,7 @@
 import { Flex, Card, Text } from "@radix-ui/themes";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 
-const CardTask = ({ task }) => {
+const Task = ({ task }) => {
   return (
     <Card
       variant="surface"
@@ -24,4 +24,4 @@ const CardTask = ({ task }) => {
   );
 };
 
-export default CardTask;
+export default Task;

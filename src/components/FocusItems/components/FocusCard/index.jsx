@@ -1,9 +1,9 @@
 import { Text } from "@radix-ui/themes";
 
-import CardCategory from "./CardCategory";
-import CardTask from "./CardTask";
+import Category from "./components/Category";
+import Task from "./components/Task";
 
-const CategoryCard = ({ focusItems }) => {
+const FocusCard = ({ focusItems }) => {
   return (
     <>
       {focusItems.length === 0 && (
@@ -13,14 +13,14 @@ const CategoryCard = ({ focusItems }) => {
       )}
 
       {focusItems.map((item) => (
-        <CardCategory card={item} key={item.category.id}>
+        <Category card={item} key={item.category.id}>
           {item.tasks.map((task) => (
-            <CardTask task={task} key={task.id} />
+            <Task task={task} key={task.id} />
           ))}
-        </CardCategory>
+        </Category>
       ))}
     </>
   );
 };
 
-export default CategoryCard;
+export default FocusCard;

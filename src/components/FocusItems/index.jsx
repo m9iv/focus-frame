@@ -4,9 +4,9 @@ import { Flex, Box, Dialog } from "@radix-ui/themes";
 import { RocketIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 import SectionHeader from "../common/SectionHeader";
-import CategoryCard from "./components/CategoryCard";
-import EditCategoryDialog from "./components/CategoryCard/EditCategoryDialog";
-import DialogTrigger from "./components/CategoryCard/EditCategoryDialog/DialogTrigger";
+import FocusCard from "./components/FocusCard";
+import EditCategoryDialog from "./components/EditCategoryDialog";
+import DialogTrigger from "./components/EditCategoryDialog/components/DialogTrigger";
 
 const FocusItems = ({ focusItems, onAddFocusItems }) => {
   const [categoryName, setCategoryName] = useState("");
@@ -40,7 +40,7 @@ const FocusItems = ({ focusItems, onAddFocusItems }) => {
       <SectionHeader title="Focus" icon={<RocketIcon />} />
 
       <Flex direction="column" gap="6" maxWidth="350px" pt="5">
-        <CategoryCard focusItems={focusItems} />
+        <FocusCard focusItems={focusItems} />
 
         <Flex gap="2" justify="center" align="center">
           <Dialog.Root>

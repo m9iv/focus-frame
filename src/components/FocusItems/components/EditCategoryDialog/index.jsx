@@ -1,10 +1,10 @@
 import { Dialog, Flex } from "@radix-ui/themes";
 
-import DialogHeader from "./DialogHeader";
-import FieldInput from "./FieldInput";
-import FieldSelect from "./FieldSelect";
-import FieldInputLine from "./FieldInputLine";
-import DialogButtons from "./DialogButtons";
+import DialogHeader from "./components/DialogHeader";
+import FieldInput from "./components/FieldInput";
+import FieldSelect from "./components/FieldSelect";
+import FieldInputLine from "./components/FieldInputLine";
+import DialogButtons from "./components/DialogButtons";
 
 const EditCategoryDialog = ({
   name,
