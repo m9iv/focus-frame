@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Dialog, Flex } from "@radix-ui/themes";
 
 import DialogHeader from "./DialogHeader";

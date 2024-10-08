@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Card, Button } from "@radix-ui/themes";
 
 const CardCategory = ({ children, card }) => {

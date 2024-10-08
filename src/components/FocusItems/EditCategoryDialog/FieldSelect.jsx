@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Text, Select } from "@radix-ui/themes";
 
 import { colors } from "../../../_data";

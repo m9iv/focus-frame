@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Flex, Card, Text } from "@radix-ui/themes";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 

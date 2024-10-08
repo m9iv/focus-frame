@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Dialog } from "@radix-ui/themes";
 
 const DialogHeader = ({ title, children }) => {

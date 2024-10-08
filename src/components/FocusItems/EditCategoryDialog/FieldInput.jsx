@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Text, TextField } from "@radix-ui/themes";
 
 const FieldInput = ({ title, defaultValue, onUpdate }) => {

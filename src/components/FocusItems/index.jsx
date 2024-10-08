@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 import { Flex, Box, Dialog } from "@radix-ui/themes";

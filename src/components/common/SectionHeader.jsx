@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Heading } from "@radix-ui/themes";
 
 const SectionHeader = ({ icon, title }) => {

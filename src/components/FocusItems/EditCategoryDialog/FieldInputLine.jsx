@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Flex, Text, TextField, Button } from "@radix-ui/themes";
 import { PlusIcon, MinusIcon } from "@radix-ui/react-icons";
 
