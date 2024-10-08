@@ -4,9 +4,9 @@ import { Flex, Box, Dialog } from "@radix-ui/themes";
 import { RocketIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 import SectionHeader from "../common/SectionHeader";
-import CategoryCard from "./CategoryCard";
-import EditCategoryDialog from "./EditCategoryDialog";
-import DialogTrigger from "./EditCategoryDialog/DialogTrigger";
+import CategoryCard from "./components/CategoryCard";
+import EditCategoryDialog from "./components/CategoryCard/EditCategoryDialog";
+import DialogTrigger from "./components/CategoryCard/EditCategoryDialog/DialogTrigger";
 
 const FocusItems = ({ focusItems, onAddFocusItems }) => {
   const [categoryName, setCategoryName] = useState("");

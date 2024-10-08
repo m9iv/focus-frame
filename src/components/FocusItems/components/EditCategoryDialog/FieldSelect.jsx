@@ -1,6 +1,6 @@
 import { Text, Select } from "@radix-ui/themes";
 
-import { colors } from "../../../_data";
+import { colors } from "../../../../../_data";
 
 const FieldSelect = ({ title, selected, onSelect }) => {
   return (
