@@ -56,7 +56,9 @@ const EditCategoryDialog = ({
   const handleSubmitNewCategory = (e) => {
     e.preventDefault();
 
-    if (!name || tasks.length === 0) return;
+    if (!name || tasks.length === 0) {
+      return;
+    }
 
     const newCategory = {
       category: {

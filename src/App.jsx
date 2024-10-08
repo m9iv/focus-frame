@@ -27,9 +27,12 @@ const App = () => {
         <FocusItems
           focusItems={focusItems}
           onAddFocusItems={handleSetFocusItems}
+          // onAddTimespanOfCategory
         />
 
-        <EverydayPlans />
+        <EverydayPlans 
+           // timespansGroupedDays={{ 'Monday}: [], }}
+        />
       </Flex>
 
       <LearningProgress />
