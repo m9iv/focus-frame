@@ -3,7 +3,7 @@ import { Text } from "@radix-ui/themes";
 import Category from "./components/Category";
 import Task from "./components/Task";
 
-const FocusCard = ({ focusItems }) => {
+const FocusCards = ({ focusItems }) => {
   return (
     <>
       {focusItems.length === 0 && (
@@ -23,4 +23,4 @@ const FocusCard = ({ focusItems }) => {
   );
 };
 
-export default FocusCard;
+export default FocusCards;
