@@ -21,6 +21,11 @@ const EditCategoryDialog = ({
     id: crypto.randomUUID(),
   };
 
+  const dialog = {
+    title: "Edit Category",
+    description: "Add at least one task in this category",
+  };
+
   const handleUpdateTask = (curId, newValue) => {
     const curTaskIdx = tasks.findIndex((task) => task.id === curId);
 
@@ -78,9 +83,7 @@ const EditCategoryDialog = ({
 
   return (
     <Dialog.Content maxWidth="450px">
-      <DialogHeader title="Edit Category">
-        Add at least one task in this category
-      </DialogHeader>
+      <DialogHeader title={dialog.title} description={dialog.description} />
 
       <form onSubmit={handleSubmitNewCategory}>
         <Flex direction="column" gap="3">
