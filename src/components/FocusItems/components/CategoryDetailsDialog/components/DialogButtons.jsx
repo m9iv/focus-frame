@@ -1,15 +1,29 @@
 import { Button } from "@radix-ui/themes";
 
-const DialogButtons = ({ onClose, onSubmit }) => {
+const DialogButtons = ({ isNewCategory, onClose, onDelete, onSubmit }) => {
   return (
     <>
-      <Button type="button" onClick={onClose} variant="soft" color="gray">
-        Cancel
-      </Button>
+      {!isNewCategory && (
+        <Button type="button" onClick={onDelete} color="red">
+          Delete
+        </Button>
+      )}
 
-      <Button type="button" onClick={onSubmit}>
-        Save
-      </Button>
+      <div>
+        <Button
+          type="button"
+          onClick={onClose}
+          variant="soft"
+          color="gray"
+          mr="3"
+        >
+          Cancel
+        </Button>
+
+        <Button type="button" onClick={onSubmit}>
+          Save
+        </Button>
+      </div>
     </>
   );
 };

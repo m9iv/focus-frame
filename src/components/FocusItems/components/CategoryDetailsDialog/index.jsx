@@ -22,7 +22,13 @@ const DEFAULT_TASKS = [
   },
 ];
 
-const CategoryDetailsDialog = ({ isOpen, selectedData, onClose, onSubmit }) => {
+const CategoryDetailsDialog = ({
+  isOpen,
+  selectedData,
+  onClose,
+  onDelete,
+  onSubmit,
+}) => {
   const [categoryData, setCategoryData] = useState(
     selectedData?.category ?? DEFAULT_CATEGORY
   );
@@ -155,10 +161,12 @@ const CategoryDetailsDialog = ({ isOpen, selectedData, onClose, onSubmit }) => {
           ))}
         </Flex>
 
-        <Flex gap="3" mt="4" justify="end">
+        <Flex gap="3" mt="4" justify={isNewCategory ? "end" : "between"}>
           <DialogButtons
+            isNewCategory={isNewCategory}
             onClose={handleClose}
             onSubmit={handleSubmitCategory}
+            onDelete={onDelete}
           />
         </Flex>
       </Dialog.Content>

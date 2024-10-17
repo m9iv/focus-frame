@@ -50,6 +50,16 @@ const FocusItems = () => {
     setSelectedCategory(null);
   };
 
+  const handleDeleteCategory = () => {
+    const filteredItems = focusItems.filter(
+      (item) => item.category.id !== selectedCategory.category.id
+    );
+
+    setFocusItems(filteredItems);
+    setIsOpenDialog(false);
+    setSelectedCategory(null);
+  };
+
   return (
     <Box width="350px">
       <SectionHeader title="Focus" icon={<RocketIcon />} />
@@ -77,6 +87,7 @@ const FocusItems = () => {
           isOpen={isOpenDialog}
           onClose={handleCloseCategoryDetails}
           selectedData={selectedCategory}
+          onDelete={handleDeleteCategory}
           onSubmit={handleUpdateFocusItems}
         />
       )}
