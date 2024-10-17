@@ -35,3 +35,12 @@ body {
   color: gray;
   box-shadow: none;
 }
+
+.focus-item:hover {
+  /* color: var(--gray-12); */
+  box-shadow: var(--shadow-4);
+}
+
+.focus-item:hover:active {
+  box-shadow: none;
+}
