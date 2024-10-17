@@ -1,10 +1,15 @@
 import { Card, Button } from "@radix-ui/themes";
 
-const Category = ({ children, card }) => {
+const Category = ({ children, focusItem, onToggleDialog }) => {
   return (
-    <Card variant="ghost" key={card.category.id}>
-      <Button variant="soft" size="1" color={card.category.color}>
-        {card.category.name}
+    <Card variant="ghost" key={focusItem.category.id}>
+      <Button
+        variant="soft"
+        size="1"
+        color={focusItem.category.color}
+        onClick={() => onToggleDialog(focusItem.category.id)}
+      >
+        {focusItem.category.name}
       </Button>
 
       {children}

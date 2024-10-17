@@ -1,46 +1,53 @@
 import { useState } from "react";
 
-import { Flex, Box, Dialog } from "@radix-ui/themes";
+import { Flex, Box, Button, Text } from "@radix-ui/themes";
 import { RocketIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 
 import SectionHeader from "../common/SectionHeader";
 import FocusCards from "./components/FocusCards";
-import EditCategoryDialog from "./components/EditCategoryDialog";
-import DialogTrigger from "./components/EditCategoryDialog/components/DialogTrigger";
+import CategoryDetailsDialog from "./components/CategoryDetailsDialog";
 
 import { testFocusItems } from "../../_data";
 
 const FocusItems = () => {
-  // [focusItems] = {category} + [tasks]
   const [focusItems, setFocusItems] = useState(testFocusItems);
-  const [categoryName, setCategoryName] = useState("");
-  const [categoryColor, setCategoryColor] = useState("indigo");
-  const [tasks, setTasks] = useState([]);
+  const [isOpenDialog, setIsOpenDialog] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  const initialTask = {
-    name: "",
-    isPlaned: false,
-    id: crypto.randomUUID(),
+  const handleUpdateFocusItems = (payload) => {
+    if (selectedCategory != null) {
+      const idx = focusItems.findIndex(
+        (item) => item.category.id === payload.category.id
+      );
+      const updatedFocusItems = [...focusItems];
+      updatedFocusItems[idx] = payload;
+      setFocusItems(updatedFocusItems);
+    } else {
+      setFocusItems((items) => [...items, payload]);
+    }
+
+    setIsOpenDialog(false);
+    setSelectedCategory(null);
   };
 
-  const handleSetFocusItems = (newItems) => {
-    setFocusItems((items) => [...items, newItems]);
+  const handleOpenCategoryDetails = (categoryId) => {
+    if (categoryId != null) {
+      const categoriesCopy = [...focusItems];
+      const foundCategory = categoriesCopy.find(
+        (item) => item.category.id === categoryId
+      );
+
+      if (foundCategory != null) {
+        setSelectedCategory(foundCategory);
+      }
+    }
+
+    setIsOpenDialog(true);
   };
 
-  const handleSetCategoryName = (newName) => {
-    setCategoryName(newName);
-  };
-
-  const handleSetCategoryColor = (newColor) => {
-    setCategoryColor(newColor);
-  };
-
-  const handleSetTasks = (updatedTask) => {
-    setTasks(updatedTask);
-  };
-
-  const handleAddNewCategory = () => {
-    tasks.length === 0 && setTasks([initialTask]);
+  const handleCloseCategoryDetails = () => {
+    setIsOpenDialog(false);
+    setSelectedCategory(null);
   };
 
   return (
@@ -48,28 +55,31 @@ const FocusItems = () => {
       <SectionHeader title="Focus" icon={<RocketIcon />} />
 
       <Flex direction="column" gap="6" maxWidth="350px" pt="5">
-        <FocusCards focusItems={focusItems} />
+        <FocusCards
+          focusItems={focusItems}
+          onOpenCategoryDetails={handleOpenCategoryDetails}
+          onSubmit={handleUpdateFocusItems}
+        />
 
         <Flex gap="2" justify="center" align="center">
-          <Dialog.Root>
-            <DialogTrigger
-              title="Add new category"
-              icon={<PlusCircledIcon />}
-              onClick={handleAddNewCategory}
-            />
-
-            <EditCategoryDialog
-              name={categoryName}
-              color={categoryColor}
-              tasks={tasks}
-              onUpdateTasks={handleSetTasks}
-              onUpdateName={handleSetCategoryName}
-              onUpdateColor={handleSetCategoryColor}
-              onSubmit={handleSetFocusItems}
-            />
-          </Dialog.Root>
+          <Button
+            onClick={() => handleOpenCategoryDetails(null)}
+            variant="ghost"
+            width="100%"
+          >
+            <PlusCircledIcon /> <Text size="1">Add new category</Text>
+          </Button>
         </Flex>
       </Flex>
+
+      {isOpenDialog && (
+        <CategoryDetailsDialog
+          isOpen={isOpenDialog}
+          onClose={handleCloseCategoryDetails}
+          selectedData={selectedCategory}
+          onSubmit={handleUpdateFocusItems}
+        />
+      )}
     </Box>
   );
 };

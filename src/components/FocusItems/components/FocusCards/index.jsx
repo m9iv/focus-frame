@@ -3,7 +3,7 @@ import { Text } from "@radix-ui/themes";
 import Category from "./components/Category";
 import Task from "./components/Task";
 
-const FocusCards = ({ focusItems }) => {
+const FocusCards = ({ focusItems, onOpenCategoryDetails }) => {
   return (
     <>
       {focusItems.length === 0 && (
@@ -12,9 +12,13 @@ const FocusCards = ({ focusItems }) => {
         </Text>
       )}
 
-      {focusItems.map((item) => (
-        <Category card={item} key={item.category.id}>
-          {item.tasks.map((task) => (
+      {focusItems.map((focusItem) => (
+        <Category
+          focusItem={focusItem}
+          onToggleDialog={onOpenCategoryDetails}
+          key={focusItem.category.id}
+        >
+          {focusItem.tasks.map((task) => (
             <Task task={task} key={task.id} />
           ))}
         </Category>
