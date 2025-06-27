@@ -1,5 +1,5 @@
-import { Box, Section, Container, Flex, Heading, Text } from "@radix-ui/themes";
-import { TransformIcon } from "@radix-ui/react-icons";
+import { Box, Section, Container, Flex, Heading, Text } from '@radix-ui/themes'
+import styles from './Header.module.css'
 
 const Header = () => {
   return (
@@ -7,11 +7,11 @@ const Header = () => {
       <Section size="2">
         <Container size="1">
           <Flex justify="center" gap="2">
-            <TransformIcon width="32" height="32" color="gray" />
+            <img className={styles.logo} src="/logo.png" alt="Logo" />
 
             <Flex direction="column">
               <Heading as="h1" size="7" weight="bold">
-                FocusFrame
+                Focus Frame
               </Heading>
 
               <Text color="gray" size="1">
@@ -22,7 +22,7 @@ const Header = () => {
         </Container>
       </Section>
     </Box>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
