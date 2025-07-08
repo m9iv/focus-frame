@@ -1,5 +1,4 @@
 /* Resets */
-
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +8,12 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+
+  background: url(/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -16,18 +21,6 @@ body {
   line-height: 1.6;
 }
 
-.radix-themes {
-  --cursor-button: pointer;
-  --cursor-checkbox: pointer;
-  --cursor-disabled: default;
-  --cursor-link: pointer;
-  --cursor-menu-item: pointer;
-  --cursor-radio: pointer;
-  --cursor-slider-thumb: grab;
-  --cursor-slider-thumb-active: grabbing;
-  --cursor-switch: pointer;
-}
-
-.rt-Card.rt-variant-ghost {
-  background-color: var(--gray-a2);
+.radix-themes:where([data-has-background='true']) {
+  background-color: transparent;
 }

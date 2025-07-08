@@ -35,7 +35,7 @@ function FocusCategories() {
   return (
     <>
       {tasks.map((task) => (
-        <Card variant="ghost" key={task.category.id}>
+        <Card key={task.category.id}>
           <Button
             variant="soft"
             size="1"

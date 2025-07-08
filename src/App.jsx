@@ -1,5 +1,5 @@
 // Radix Components
-import { Flex } from '@radix-ui/themes'
+import { Theme, Flex } from '@radix-ui/themes'
 // Common Components
 import Header from './components/Header'
 // Layouts
@@ -11,7 +11,11 @@ import { TasksProvider } from './contexts/TasksContext'
 
 function App() {
   return (
-    <>
+    <Theme
+      appearance="dark"
+      panelBackground="translucent"
+      accentColor="violet"
+      grayColor="gray">
       <Header />
 
       <TasksProvider>
@@ -22,7 +26,7 @@ function App() {
       </TasksProvider>
 
       {/* <LearningProgress /> */}
-    </>
+    </Theme>
   )
 }
 

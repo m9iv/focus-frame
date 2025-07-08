@@ -7,8 +7,6 @@ import styles from './FocusTask.module.css'
 function FocusTask({ task }) {
   return (
     <Card
-      variant="surface"
-      gap="3"
       className={`${styles.focusTask} ${task.isPlaned ? 'active' : ''}`}
       key={task.id}>
       <Flex justify="between" align="center">
@@ -27,3 +25,21 @@ function FocusTask({ task }) {
 }
 
 export default FocusTask
+
+//  <Card
+//   variant="surface"
+//   className={`${styles.focusTask} ${task.isPlaned ? 'active' : ''}`}
+//   key={task.id}>
+//   <Flex justify="between" align="center">
+//     <Text as="div" size="2">
+//       {task.name}
+//     </Text>
+
+//     {task.isPlaned ? (
+//       <ChevronLeftIcon color="gray" />
+//     ) : (
+//       <ChevronRightIcon color="gray" />
+//     )}
+//   </Flex>
+
+// </Card>

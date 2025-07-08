@@ -1,21 +1,3 @@
 .focusTask {
-  margin: 10px 0;
-  box-shadow: var(--shadow-4);
-  cursor: pointer;
-  /* Reset border */
-  --card-border-width: 0px;
-
-  &:hover {
-    box-shadow: var(--shadow-4);
-  }
-
-  &:active,
-  &.active {
-    color: gray;
-    box-shadow: none;
-  }
-
-  &:hover:active {
-    box-shadow: none;
-  }
+  margin: 1rem 0;
 }
