@@ -1,4 +1,6 @@
+// Radix Components
 import { Box, Section, Container, Flex, Heading, Text } from '@radix-ui/themes'
+// Styles
 import styles from './Header.module.css'
 
 const Header = () => {
@@ -14,7 +16,7 @@ const Header = () => {
                 Focus Frame
               </Heading>
 
-              <Text color="gray" size="1">
+              <Text color="violet" size="1">
                 Dream, plan, learn and analize
               </Text>
             </Flex>

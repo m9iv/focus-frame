@@ -31,28 +31,3 @@ body {
 .rt-Card.rt-variant-ghost {
   background-color: var(--gray-a2);
 }
-
-/* Custom Styles */
-
-.focus-item {
-  margin: 10px 0;
-  box-shadow: var(--shadow-4);
-  cursor: pointer;
-  /* Reset border */
-  --card-border-width: 0px;
-}
-
-.focus-item:active,
-.focus-item.active {
-  color: gray;
-  box-shadow: none;
-}
-
-.focus-item:hover {
-  /* color: var(--gray-12); */
-  box-shadow: var(--shadow-4);
-}
-
-.focus-item:hover:active {
-  box-shadow: none;
-}

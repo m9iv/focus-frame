@@ -1,0 +1,56 @@
+{
+  "tasks": [
+    {
+      "category": {
+        "name": "Frontend",
+        "color": "green",
+        "id": "02df6746-c1b7-484c-8302-fb6f9e366f74"
+      },
+      "variants": [
+        {
+          "name": "React",
+          "isPlaned": true,
+          "id": "afe148dd-5594-486a-a599-d83ade5ec1db"
+        },
+        {
+          "name": "CSS/HTML",
+          "isPlaned": false,
+          "id": "6b165fa6-34ab-425e-a301-563e83ebd263"
+        }
+      ]
+    },
+    {
+      "category": {
+        "name": "Reading Books",
+        "color": "sky",
+        "id": "ceb05ee7-5754-48b3-9b2e-15ec641ce6af"
+      },
+      "variants": [
+        {
+          "name": "Read The Invincible",
+          "isPlaned": true,
+          "id": "27f861a6-c9d6-440b-a6fc-24e5ce02245a"
+        }
+      ]
+    }
+  ],
+
+  "todo": [
+    {
+      "taskVariantId": "27f861a6-c9d6-440b-a6fc-24e5ce02245a",
+      "timeSpan": 1800,
+      "weekday": "mon"
+    }
+  ],
+
+  "progress": [
+    {
+      "date": "2025-07-01",
+      "cout": 5
+    },
+    {
+      "date": "2025-07-02",
+      "cout": 7
+    }
+  ]
+}
