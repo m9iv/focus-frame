@@ -13,9 +13,14 @@
           "id": "afe148dd-5594-486a-a599-d83ade5ec1db"
         },
         {
-          "name": "CSS/HTML",
+          "name": "JavaScript",
           "isPlaned": false,
           "id": "6b165fa6-34ab-425e-a301-563e83ebd263"
+        },
+        {
+          "name": "TypeScript",
+          "isPlaned": false,
+          "id": "6b111fa6-34ab-425e-a301-563e83ebd263"
         }
       ]
     },
@@ -27,9 +32,14 @@
       },
       "variants": [
         {
-          "name": "Read The Invincible",
+          "name": "\"Непереможний\" С.Лем",
           "isPlaned": true,
           "id": "27f861a6-c9d6-440b-a6fc-24e5ce02245a"
+        },
+        {
+          "name": "\"Нейромантик\" У.Гибсон",
+          "isPlaned": true,
+          "id": "27f861a6-c9d6-440b-a6ry-24e5ce02245a"
         }
       ]
     }
