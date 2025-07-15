@@ -14,7 +14,7 @@ function GeneralFocus() {
 
       <Flex direction="column" gap="6" maxWidth="350px" pt="5">
         <FocusCategories />
-        {/* <NewCategoryButton /> */}
+        <NewCategoryButton />
       </Flex>
     </Box>
   )
