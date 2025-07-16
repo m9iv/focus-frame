@@ -22,7 +22,8 @@
           "isPlaned": false,
           "id": "6b111fa6-34ab-425e-a301-563e83ebd263"
         }
-      ]
+      ],
+      "id": "216a"
     },
     {
       "category": {
@@ -41,26 +42,53 @@
           "isPlaned": true,
           "id": "27f861a6-c9d6-440b-a6ry-24e5ce02245a"
         }
+      ],
+      "id": "e2b6"
+    },
+    {
+      "id": "5948",
+      "category": {
+        "name": "Sport",
+        "color": "jade",
+        "id": "a296ccb2-4e03-479f-bab6-0e58b3425f72"
+      },
+      "variants": [
+        {
+          "name": "Joga",
+          "isPlaned": false,
+          "id": "3a4cbde6-adfa-4cc2-943a-8e336a312c5b"
+        },
+        {
+          "name": "Free Exercises",
+          "isPlaned": false,
+          "id": "b9e553fe-7288-4627-93ae-d937e2e38fc3"
+        },
+        {
+          "name": "Walking",
+          "isPlaned": false,
+          "id": "6a031f85-da51-4e14-82a0-b6ec4da6aa76"
+        }
       ]
     }
   ],
-
   "todo": [
     {
       "taskVariantId": "27f861a6-c9d6-440b-a6fc-24e5ce02245a",
       "timeSpan": 1800,
-      "weekday": "mon"
+      "weekday": "mon",
+      "id": "ba7f"
     }
   ],
-
   "progress": [
     {
       "date": "2025-07-01",
-      "cout": 5
+      "cout": 5,
+      "id": "3635"
     },
     {
       "date": "2025-07-02",
-      "cout": 7
+      "cout": 7,
+      "id": "01bf"
     }
   ]
 }

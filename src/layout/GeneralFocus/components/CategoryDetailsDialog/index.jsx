@@ -113,14 +113,14 @@ function CategoryDetailsDialog({
         ...newCategoryData,
         id: crypto.randomUUID(),
       }
-      const newCategory = { category: updatedCategoryData, tasks: tasksData }
+      const newCategory = { category: updatedCategoryData, variants: tasksData }
       onSubmit(newCategory)
     } else {
-      const updatedCategory = { category: categoryData, tasks: tasksData }
+      const updatedCategory = { category: categoryData, variants: tasksData }
       onSubmit(updatedCategory)
     }
 
-    resetFields()
+    handleClose()
   }
 
   const handleClose = () => {

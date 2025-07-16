@@ -11,7 +11,7 @@ function NewCategoryButton() {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(null)
 
-  const { tasks } = useTasks()
+  const { tasks, createCategory } = useTasks()
 
   function handleOpenCategoryDetails(categoryId) {
     if (categoryId != null) {
@@ -33,6 +33,10 @@ function NewCategoryButton() {
     setSelectedCategory(null)
   }
 
+  async function handleUpdateTasks(newCategory) {
+    createCategory(newCategory)
+  }
+
   return (
     <>
       <Flex gap="2" justify="center" align="center">
@@ -49,8 +53,7 @@ function NewCategoryButton() {
           isOpen={isOpenDialog}
           onClose={handleCloseCategoryDetails}
           selectedData={selectedCategory}
-          // onDelete={handleDeleteCategory}
-          // onSubmit={handleUpdateFocusItems}
+          onSubmit={handleUpdateTasks}
         />
       )}
     </>

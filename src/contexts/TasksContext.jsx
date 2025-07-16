@@ -25,6 +25,20 @@ function reducer(state, action) {
         tasks: action.payload,
       }
 
+    case 'category/created':
+      return {
+        ...state,
+        isLoading: false,
+        tasks: [...state.tasks, action.payload],
+      }
+
+    case 'category/deleted':
+      return {
+        ...state,
+        isLoading: false,
+        tasks: state.tasks.filter((category) => category.id !== action.payload),
+      }
+
     case 'rejected':
       return {
         ...state,
@@ -63,8 +77,30 @@ function TasksProvider({ children }) {
     fetchTasks()
   }, [])
 
+  async function createCategory(newCategory) {
+    try {
+      dispatch({ type: 'loading' })
+
+      const res = await fetch(`${BASE_URL}/tasks`, {
+        method: 'POST',
+        body: JSON.stringify(newCategory),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const data = await res.json()
+      dispatch({ type: 'category/created', payload: data })
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error creating new category...',
+      })
+    }
+  }
+
   return (
-    <TasksContext.Provider value={{ tasks, isLoading, error }}>
+    <TasksContext.Provider value={{ tasks, createCategory, isLoading, error }}>
       {children}
     </TasksContext.Provider>
   )
