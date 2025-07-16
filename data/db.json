@@ -1,72 +1,37 @@
 {
   "tasks": [
     {
+      "id": "f443",
       "category": {
         "name": "Frontend",
-        "color": "green",
-        "id": "02df6746-c1b7-484c-8302-fb6f9e366f74"
+        "color": "yellow",
+        "id": "e80cc785-1b51-4477-b3c3-03339746339f"
       },
       "variants": [
         {
           "name": "React",
-          "isPlaned": true,
-          "id": "afe148dd-5594-486a-a599-d83ade5ec1db"
-        },
-        {
-          "name": "JavaScript",
           "isPlaned": false,
-          "id": "6b165fa6-34ab-425e-a301-563e83ebd263"
-        },
-        {
-          "name": "TypeScript",
-          "isPlaned": false,
-          "id": "6b111fa6-34ab-425e-a301-563e83ebd263"
+          "id": "9747410f-a097-4f01-99e6-4b8bd5e39bf6"
         }
-      ],
-      "id": "216a"
+      ]
     },
     {
+      "id": "d068",
       "category": {
-        "name": "Reading Books",
-        "color": "sky",
-        "id": "ceb05ee7-5754-48b3-9b2e-15ec641ce6af"
-      },
-      "variants": [
-        {
-          "name": "\"Непереможний\" С.Лем",
-          "isPlaned": true,
-          "id": "27f861a6-c9d6-440b-a6fc-24e5ce02245a"
-        },
-        {
-          "name": "\"Нейромантик\" У.Гибсон",
-          "isPlaned": true,
-          "id": "27f861a6-c9d6-440b-a6ry-24e5ce02245a"
-        }
-      ],
-      "id": "e2b6"
-    },
-    {
-      "id": "5948",
-      "category": {
-        "name": "Sport",
+        "name": "Reading",
         "color": "jade",
-        "id": "a296ccb2-4e03-479f-bab6-0e58b3425f72"
+        "id": "b4454b26-925d-41f8-b838-c9ab3d925a4f"
       },
       "variants": [
         {
-          "name": "Joga",
+          "name": "\"The Invincible\" by S.Lem",
           "isPlaned": false,
-          "id": "3a4cbde6-adfa-4cc2-943a-8e336a312c5b"
+          "id": "9747410f-a097-4f01-99e6-4b8bd5e39bf6"
         },
         {
-          "name": "Free Exercises",
+          "name": "\"Neuromancer\" by S.Gibson",
           "isPlaned": false,
-          "id": "b9e553fe-7288-4627-93ae-d937e2e38fc3"
-        },
-        {
-          "name": "Walking",
-          "isPlaned": false,
-          "id": "6a031f85-da51-4e14-82a0-b6ec4da6aa76"
+          "id": "04cfdb46-be30-40b0-bc19-dda4ab6e619c"
         }
       ]
     }

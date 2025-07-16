@@ -99,8 +99,26 @@ function TasksProvider({ children }) {
     }
   }
 
+  async function deleteCategory(id) {
+    try {
+      dispatch({ type: 'loading' })
+
+      await fetch(`${BASE_URL}/tasks/${id}`, {
+        method: 'DELETE',
+      })
+
+      dispatch({ type: 'category/deleted', payload: id })
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error deleting the category...',
+      })
+    }
+  }
+
   return (
-    <TasksContext.Provider value={{ tasks, createCategory, isLoading, error }}>
+    <TasksContext.Provider
+      value={{ tasks, createCategory, deleteCategory, isLoading, error }}>
       {children}
     </TasksContext.Provider>
   )

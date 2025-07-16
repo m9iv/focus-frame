@@ -33,7 +33,7 @@ function NewCategoryButton() {
     setSelectedCategory(null)
   }
 
-  async function handleUpdateTasks(newCategory) {
+  function handleUpdateTasks(newCategory) {
     createCategory(newCategory)
   }
 
