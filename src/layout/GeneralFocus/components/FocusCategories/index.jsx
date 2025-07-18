@@ -14,7 +14,7 @@ function FocusCategories() {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(null)
 
-  const { tasks, deleteCategory, isLoading } = useTasks()
+  const { tasks, updateCategory, deleteCategory, isLoading } = useTasks()
 
   function handleOpenCategoryDetails(categoryId) {
     if (categoryId != null) {
@@ -32,6 +32,12 @@ function FocusCategories() {
   }
 
   function handleCloseCategoryDetails() {
+    setIsOpenDialog(false)
+    setSelectedCategory(null)
+  }
+
+  function handleUpdateCategory(updatedCategory) {
+    updateCategory(selectedCategory.id, updatedCategory)
     setIsOpenDialog(false)
     setSelectedCategory(null)
   }
@@ -87,7 +93,7 @@ function FocusCategories() {
           onClose={handleCloseCategoryDetails}
           selectedData={selectedCategory}
           onDelete={handleDeleteCategory}
-          // onSubmit={handleUpdateFocusItems}
+          onSubmit={handleUpdateCategory}
         />
       )}
     </>

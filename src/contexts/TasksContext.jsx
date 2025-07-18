@@ -32,6 +32,13 @@ function reducer(state, action) {
         tasks: [...state.tasks, action.payload],
       }
 
+    case 'category/updated':
+      return {
+        ...state,
+        isLoading: false,
+        tasks: action.payload,
+      }
+
     case 'category/deleted':
       return {
         ...state,
@@ -99,6 +106,29 @@ function TasksProvider({ children }) {
     }
   }
 
+  async function updateCategory(updatedCategoryId, updatedCategory) {
+    try {
+      dispatch({ type: 'loading' })
+
+      await fetch(`${BASE_URL}/tasks/${updatedCategoryId}`, {
+        method: 'PUT',
+        body: JSON.stringify(updatedCategory),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const res = await fetch(`${BASE_URL}/tasks`)
+      const data = await res.json()
+      dispatch({ type: 'category/updated', payload: data })
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error updating category...',
+      })
+    }
+  }
+
   async function deleteCategory(id) {
     try {
       dispatch({ type: 'loading' })
@@ -118,7 +148,14 @@ function TasksProvider({ children }) {
 
   return (
     <TasksContext.Provider
-      value={{ tasks, createCategory, deleteCategory, isLoading, error }}>
+      value={{
+        tasks,
+        createCategory,
+        updateCategory,
+        deleteCategory,
+        isLoading,
+        error,
+      }}>
       {children}
     </TasksContext.Provider>
   )
