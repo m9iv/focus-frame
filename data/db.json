@@ -1,7 +1,6 @@
 {
   "tasks": [
     {
-      "id": "f443",
       "category": {
         "name": "Frontend",
         "color": "yellow",
@@ -10,10 +9,11 @@
       "variants": [
         {
           "name": "React",
-          "isPlaned": false,
+          "isPlaned": true,
           "id": "9747410f-a097-4f01-99e6-4b8bd5e39bf6"
         }
-      ]
+      ],
+      "id": "f443"
     },
     {
       "id": "d068",
@@ -26,12 +26,27 @@
         {
           "name": "\"The Invincible\" by S.Lem",
           "isPlaned": false,
-          "id": "9747410f-a097-4f01-99e6-4b8bd5e39bf6"
+          "id": "9747410f-a097-4f01-99e6-4b8115e39bf6"
         },
         {
           "name": "\"Neuromancer\" by S.Gibson",
           "isPlaned": false,
           "id": "04cfdb46-be30-40b0-bc19-dda4ab6e619c"
+        }
+      ]
+    },
+    {
+      "id": "d96e",
+      "category": {
+        "name": "Sport",
+        "color": "sky",
+        "id": "db4047a5-6d6d-4072-848a-30f1ab02b7b1"
+      },
+      "variants": [
+        {
+          "name": "Burpee",
+          "isPlaned": true,
+          "id": "c9e1b65c-cd44-434b-a006-4d26305ca313"
         }
       ]
     }

@@ -1,9 +1,7 @@
 import { useState } from 'react'
 // Radix Components
-import { Button, Callout, Card } from '@radix-ui/themes'
-import { InfoCircledIcon } from '@radix-ui/react-icons'
+import { Button, Card } from '@radix-ui/themes'
 // Common Components
-import Spinner from '/src/components/Spinner'
 import CategoryDetailsDialog from '../CategoryDetailsDialog'
 // Local Components
 import FocusTask from '../FocusTask'
@@ -14,7 +12,7 @@ function FocusCategories() {
   const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(null)
 
-  const { tasks, updateCategory, deleteCategory, isLoading } = useTasks()
+  const { tasks, updateCategory, deleteCategory } = useTasks()
 
   function handleOpenCategoryDetails(categoryId) {
     if (categoryId != null) {
@@ -48,27 +46,6 @@ function FocusCategories() {
     setSelectedCategory(null)
   }
 
-  if (isLoading)
-    return (
-      <Card variant="ghost">
-        <Spinner />
-      </Card>
-    )
-
-  if (!tasks.length) {
-    return (
-      <Callout.Root color="blue">
-        <Callout.Icon>
-          <InfoCircledIcon />
-        </Callout.Icon>
-
-        <Callout.Text>
-          Create a category with at least one task on what you want to focus.
-        </Callout.Text>
-      </Callout.Root>
-    )
-  }
-
   return (
     <>
       {tasks.map((task) => (
@@ -82,7 +59,12 @@ function FocusCategories() {
           </Button>
 
           {task.variants.map((curVariant) => (
-            <FocusTask task={curVariant} key={curVariant.id} />
+            <FocusTask
+              color={task.category.color}
+              task={curVariant}
+              categoryId={task.id}
+              key={curVariant.id}
+            />
           ))}
         </Card>
       ))}

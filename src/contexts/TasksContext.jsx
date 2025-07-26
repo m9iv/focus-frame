@@ -6,6 +6,7 @@ const TasksContext = createContext()
 
 const initialState = {
   tasks: [],
+  plannedTasks: [],
   isLoading: false,
   error: '',
 }
@@ -18,11 +19,20 @@ function reducer(state, action) {
         isLoading: true,
       }
 
+    case 'task/planned':
+      return {
+        ...state,
+        isLoading: false,
+        tasks: action.payload.fetchedTasks,
+        plannedTasks: action.payload.updatedPlannedTasks,
+      }
+
     case 'tasks/loaded':
       return {
         ...state,
         isLoading: false,
-        tasks: action.payload,
+        tasks: action.payload.fetchedTasks,
+        plannedTasks: action.payload.updatedPlannedTasks,
       }
 
     case 'category/created':
@@ -59,7 +69,7 @@ function reducer(state, action) {
 }
 
 function TasksProvider({ children }) {
-  const [{ tasks, isLoading, error }, dispatch] = useReducer(
+  const [{ tasks, plannedTasks, isLoading, error }, dispatch] = useReducer(
     reducer,
     initialState
   )
@@ -70,9 +80,13 @@ function TasksProvider({ children }) {
 
       try {
         const res = await fetch(`${BASE_URL}/tasks`)
-        const data = await res.json()
+        const fetchedTasks = await res.json()
+        const updatedPlannedTasks = mapPlannedTasks(fetchedTasks)
 
-        dispatch({ type: 'tasks/loaded', payload: data })
+        dispatch({
+          type: 'tasks/loaded',
+          payload: { fetchedTasks, updatedPlannedTasks },
+        })
       } catch {
         dispatch({
           type: 'rejected',
@@ -146,13 +160,68 @@ function TasksProvider({ children }) {
     }
   }
 
+  async function planTask(categoryId, taskId) {
+    try {
+      dispatch({ type: 'loading' })
+
+      const task = await fetch(`${BASE_URL}/tasks/${categoryId}`).then((res) =>
+        res.json()
+      )
+
+      task.variants = task.variants.map((variant) =>
+        variant.id === taskId
+          ? { ...variant, isPlaned: !variant.isPlaned }
+          : variant
+      )
+
+      await fetch(`${BASE_URL}/tasks/${categoryId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(task),
+      })
+
+      const res = await fetch(`${BASE_URL}/tasks`)
+      const fetchedTasks = await res.json()
+      const updatedPlannedTasks = mapPlannedTasks(fetchedTasks)
+
+      dispatch({
+        type: 'task/planned',
+        payload: { fetchedTasks, updatedPlannedTasks },
+      })
+    } catch {
+      dispatch({
+        type: 'rejected',
+        payload: 'There was an error updating task...',
+      })
+    }
+  }
+
+  function mapPlannedTasks(fetchedTasks) {
+    if (!fetchedTasks.length) return []
+
+    const mappedPlannedTasks = fetchedTasks.flatMap((task) =>
+      task.variants
+        .filter((variant) => variant.isPlaned)
+        .map((variant) => ({
+          id: variant.id,
+          category: task.category.name,
+          name: variant.name,
+          color: task.category.color,
+        }))
+    )
+
+    return mappedPlannedTasks
+  }
+
   return (
     <TasksContext.Provider
       value={{
         tasks,
+        plannedTasks,
         createCategory,
         updateCategory,
         deleteCategory,
+        planTask,
         isLoading,
         error,
       }}>
