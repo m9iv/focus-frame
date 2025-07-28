@@ -2,10 +2,10 @@
 import { Theme, Flex } from '@radix-ui/themes'
 // Common Components
 import Header from './components/Header'
-// Layouts
-import GeneralFocus from './layout/GeneralFocus'
-import EverydaySteps from './layout/EverydaySteps'
-import LearningProgress from './layout/LearningProgress'
+// App Sections
+import GeneralFocus from './app/GeneralFocus'
+import EverydaySteps from './app/EverydaySteps'
+import LearningProgress from './app/LearningProgress'
 // Contexts
 import { TasksProvider } from './contexts/TasksContext'
 

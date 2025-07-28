@@ -45,10 +45,7 @@ function EverydaySteps() {
                 <Card>
                   <Flex gap="3" direction="column">
                     {plannedTasks.map((task) => (
-                      <CheckboxCards.Root
-                        key={task.id}
-                        color={task.color}
-                        className="anix-pop-in">
+                      <CheckboxCards.Root key={task.id} color={task.color}>
                         <CheckboxCards.Item value={task.id}>
                           <Badge color={task.color}>{task.category}</Badge>
 
