@@ -3,7 +3,7 @@ import { Heading, Text } from '@radix-ui/themes'
 function SectionHeader({ icon, title }) {
   return (
     <Heading size="4" as="h2">
-      <Text color="purple">{icon}</Text> <Text>{title}</Text>
+      <Text color="ruby">{icon}</Text> <Text>{title}</Text>
     </Heading>
   )
 }

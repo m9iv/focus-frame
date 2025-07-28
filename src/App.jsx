@@ -25,7 +25,7 @@ function App() {
         </Flex>
       </TasksProvider>
 
-      {/* <LearningProgress /> */}
+      <LearningProgress />
     </Theme>
   )
 }

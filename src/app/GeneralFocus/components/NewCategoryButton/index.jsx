@@ -43,6 +43,7 @@ function NewCategoryButton() {
         <Button
           onClick={() => handleOpenCategoryDetails(null)}
           variant="ghost"
+          color="ruby"
           width="100%">
           <PlusCircledIcon /> <Text size="1">Add new category</Text>
         </Button>

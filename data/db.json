@@ -3,7 +3,7 @@
     {
       "category": {
         "name": "Frontend",
-        "color": "yellow",
+        "color": "lime",
         "id": "e80cc785-1b51-4477-b3c3-03339746339f"
       },
       "variants": [
@@ -51,24 +51,21 @@
       ]
     }
   ],
-  "todo": [
-    {
-      "taskVariantId": "27f861a6-c9d6-440b-a6fc-24e5ce02245a",
-      "timeSpan": 1800,
-      "weekday": "mon",
-      "id": "ba7f"
-    }
-  ],
   "progress": [
     {
-      "date": "2025-07-01",
-      "cout": 5,
-      "id": "3635"
+      "date": "2025-07-20",
+      "count": 2,
+      "level": 1
     },
     {
-      "date": "2025-07-02",
-      "cout": 7,
-      "id": "01bf"
+      "date": "2025-07-21",
+      "count": 16,
+      "level": 4
+    },
+    {
+      "date": "2025-07-23",
+      "count": 11,
+      "level": 3
     }
   ]
 }

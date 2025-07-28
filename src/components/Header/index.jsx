@@ -16,7 +16,7 @@ const Header = () => {
                 Focus Frame
               </Heading>
 
-              <Text color="violet" size="1">
+              <Text color="gray" size="1">
                 Dream, plan, learn and analize
               </Text>
             </Flex>
